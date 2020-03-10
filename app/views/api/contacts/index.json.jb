@@ -1,11 +1,12 @@
-json = []
-@contacts.each do |contact|
-  json << {
+@contacts.map do |contact|
+  {
     id: contact.id,
     first_name: contact.first_name,
+    middle_name: contact.middle_name,
     last_name: contact.last_name,
+    full_name: contact.full_name,
+    bio: contact.bio,
     email: contact.email,
     phone_number: contact.phone_number,
   }
 end
-return json

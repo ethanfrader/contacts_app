@@ -5,6 +5,6 @@ class Contact < ApplicationRecord
 
   def full_name
     full = ""
-    full += "#{first_name} #{last_name}"
+    full += "#{first_name} #{middle_name} #{last_name}"
   end
 end
