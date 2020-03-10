@@ -13,8 +13,11 @@ class Api::ContactsController < ApplicationController
       middle_name: params["middle_name"],
       bio: params["bio"],
     )
-    @contact.save
-    render "show.json.jb"
+    if @contact.save
+      render "show.json.jb"
+    else
+      render json: { message: @contact.errors.full_messages }
+    end
   end
 
   def index
@@ -30,8 +33,11 @@ class Api::ContactsController < ApplicationController
     @contact.phone_number = params["phone_number"] || @contact.phone_number
     @contact.middle_name = params["middle_name"] || @contact.middle_name
     @contact.bio = params["bio"] || @contact.bio
-    @contact.save
-    render "show.json.jb"
+    if @contact.save
+      render "show.json.jb"
+    else
+      render json: { message: @contact.errors.full_messages }
+    end
   end
 
   def destroy
