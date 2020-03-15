@@ -12,6 +12,7 @@ class Api::ContactsController < ApplicationController
       phone_number: params["phone_number"],
       middle_name: params["middle_name"],
       bio: params["bio"],
+      user_id: current_user.id,
     )
     if @contact.save
       render "show.json.jb"
@@ -21,8 +22,13 @@ class Api::ContactsController < ApplicationController
   end
 
   def index
-    @contacts = Contact.all
-    render "index.json.jb"
+    if current_user
+      @contacts = []
+      @contacts << Contact.find_by(user_id: current_user.id)
+      render "index.json.jb"
+    else
+      render json: { message: "User not logged in" }
+    end
   end
 
   def update

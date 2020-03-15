@@ -8,5 +8,6 @@
     bio: contact.bio,
     email: contact.email,
     phone_number: contact.phone_number,
+    user_id: contact.user_id,
   }
 end
