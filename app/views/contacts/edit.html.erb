@@ -1,0 +1,25 @@
+<h1>Update info for <%=@contact.full_name%>:</h1><br>
+<form method="post" action="/contacts/<%=@contact.id%>">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    First name: <input type="text" name="first_name" value="<%=@contact.first_name%>" />
+  </div><br>
+  <div>
+    Middle name: <input type="text" name="middle_name" value="<%=@contact.middle_name%>" />
+  </div><br>
+  <div>
+    Last name: <input type="text" name="last_name" value="<%=@contact.last_name%>" />
+  </div><br>
+  <div>
+    Phone: <input type="text" name="phone_number" value="<%=@contact.phone_number%>" />
+  </div><br>
+  <div>
+    Email: <input type="text" name="email" value="<%=@contact.email%>" />
+  </div><br>
+  <div>
+    Bio: <input type="text" name="bio" value="<%=@contact.bio%>" />
+  </div><br>
+  <input type="submit" value="Update Contact" />  
+</form><br>
+  <a href="/contacts">Back to contacts list</a>
+  
